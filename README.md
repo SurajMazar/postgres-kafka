@@ -54,7 +54,7 @@ This allows real-time monitoring and integration of database changes with other 
   ```
   
   9. The node js app will stream the postgres events.
-  ![image](https://user-images.githubusercontent.com/49373020/219532771-c63bbc8b-788c-4355-a62e-bf25e1d60593.png)
+![image](https://user-images.githubusercontent.com/49373020/219533533-396939db-0f98-46dd-a37d-870fac94d59b.png)
 
 
   
