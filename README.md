@@ -26,7 +26,7 @@ This allows real-time monitoring and integration of database changes with other 
  
  ```
  psql -U postgres
- Create database customers (id serial PRIMARY, name VARCHAR ( 50 ) NULL);
+ Create database customers (id serial PRIMARY KEY, name VARCHAR ( 50 ) NULL);
  ```
  
  5. The Debezium server is running at port 9090 of your local system. We have a config file to inform Debezium about the database we are monitoring (refer to pg-source-config.json).
