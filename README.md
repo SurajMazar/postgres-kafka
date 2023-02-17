@@ -11,34 +11,32 @@ This allows real-time monitoring and integration of database changes with other 
 # Installation
 
 1. Clone the repo
-2. Create a .env file in bpth root folder and node-app folder (refer to the .env.template file)
-2. Run 
+2. Create a .env file in both the root folder and the node-app folder (refer to the .env.template file).
+2. Run the command: 
  ```
  docker compose up
  ```
- 3. After that go to the postgres container
+ 3.After that, go to the Postgres container by running:
  
  ```
  docker exec -it postgres bash
  ```
  
- 4. Access postgres via  terminal and create a database customers
+ 4. Access Postgres via terminal and create a database called customers
  
  ```
  psql -U postgres
  Create database customers (id serial PRIMARY, name VARCHAR ( 50 ) NULL);
  ```
  
- 5. Also the debezium server is running at port 9090 of your local system. we have a config file to inform debezium about the database we are monitoring
-  (refer to  pg-source-config.json)
-  
-  6. We send a post request to our local debezium server with this file
+ 5. The Debezium server is running at port 9090 of your local system. We have a config file to inform Debezium about the database we are monitoring (refer to pg-source-config.json).
+ 
+ 6. Send a POST request to your local Debezium server with this file using the command
   ```
   curl -i -X POST -H "Accept:application/json" -H "Content-Type:application/json" localhost:9090/connectors/ -d @pg-source-config.json
   ```
-  It will create a topic in kafka as well
   
-  You can see the list of connectors also by a get request on 9090
+  This will create a topic in Kafka as well. You can also see the list of connectors by using a GET request on 9090:
   
   ```
   curl -H "Accept:application/json" localhost:9090/connectors
@@ -49,7 +47,7 @@ This allows real-time monitoring and integration of database changes with other 
   cd node-app && node index.js
   ```
   
-  8. Insert a demo data into postgres
+  8. Insert a demo data into postgres.
   
   ```
   insert into customers (id,name) values (1,'suraj');
